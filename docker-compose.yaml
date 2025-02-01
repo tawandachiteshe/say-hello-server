@@ -3,8 +3,6 @@ services:
     image: jonasal/nginx-certbot:latest
     env_file: 
       - ./nginx.env
-    build:
-      context: nginx
     volumes:
       - nginx_secrets:/etc/letsencrypt
       - ./nginx/user_conf.d:/etc/nginx/user_conf.d:ro
