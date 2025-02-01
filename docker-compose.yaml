@@ -5,7 +5,7 @@ services:
       - ./nginx.env
     volumes:
       - nginx_secrets:/etc/letsencrypt
-      - ./nginx/user_conf.d:/etc/nginx/user_conf.d:ro
+      - ./nginx/user_conf.d:/etc/nginx/conf.d
     links:
       - hello-server
     ports: 
