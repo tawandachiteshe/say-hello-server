@@ -1,6 +1,20 @@
-
 services:
+  http-server:
+    image: jonasal/nginx-certbot:latest
+    env_file: 
+      - ./nginx.env
+    volumes:
+      - nginx_secrets:/etc/letsencrypt
+      - /user_conf.d:/etc/nginx/user_conf.d:ro
+    ports: 
+      - "80:80"
+      - "443:443"
+
+
   hello-server:
     build: .
     ports:
       - "3000:3000"
+volumes:
+  nginx_secrets:
+
